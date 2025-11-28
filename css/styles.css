@@ -3,6 +3,8 @@
   --bg-but: #383234;
   --button-bg: #f7f6f6;
   --main-bg: #cfcfcf;
+  --text-color: rgb(15, 15, 15);
+  --button-text: rgb(117, 117, 117);
 }
 
 * {
@@ -44,6 +46,19 @@ img {
   align-items: center;
   gap: 5%;
 }
+
+#Switcher {
+  float: left;
+  position: absolute;
+  height: 40px;
+  width: 100px;
+  top: 0px;
+  right: 0px;
+  border-radius: 20px;
+  background-color: var(--button-bg);
+  border: none;
+}
+
 .a {
   padding: 7px;
   display: flex;
@@ -62,6 +77,7 @@ img {
 .main {
   width: 100%;
   background-color: var(--main-bg);
+  color: var(--text-color);
 }
 
 h2 {
@@ -85,5 +101,12 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: var(--text-color);
+}
+
+.dark {
+  --bg-but: #333333;
+  --text-color: #e0e0e0;
+  --main-bg: #575757;
+  --button-bg: #7a7a7a;
 }
