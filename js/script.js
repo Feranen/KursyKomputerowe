@@ -1,18 +1,34 @@
 btn = document.getElementById('Switcher');
 
-ColorMode = false;
+
+if (window.localStorage.getItem("ColorMode") == undefined) {
+    window.localStorage.setItem("ColorMode", false)
+}
+
+let ColorMode = window.localStorage.getItem("ColorMode")
 
 function ChangeButt() {
-    if (ColorMode) {
+    let ColorMode = window.localStorage.getItem("ColorMode")
+    if (ColorMode == "true") {
         btn.innerHTML = "Dark Mode"
     } else {
         btn.innerHTML = "Light mode"
     }
 }
-    ChangeButt();
+ChangeButt();
 function DarkOrLight() {
+    let ColorMode = window.localStorage.getItem("ColorMode")
     document.getElementsByTagName('body')[0].classList.toggle("dark");
-    ColorMode = !ColorMode
+    var isTrueSet = (ColorMode === 'true');
+    window.localStorage.setItem("ColorMode", !isTrueSet)
+    ChangeButt();
+}
+
+if (ColorMode == "true") {
+    document.getElementsByTagName('body')[0].classList.add("dark");
+    ChangeButt();
+} else {
+    document.getElementsByTagName('body')[0].classList.remove("dark");
     ChangeButt();
 }
 btn.addEventListener('click', DarkOrLight)
