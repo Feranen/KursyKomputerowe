@@ -1,15 +1,14 @@
 btn = document.getElementById('Switcher');
 
-
-if (window.localStorage.getItem("ColorMode") == undefined) {
-    window.localStorage.setItem("ColorMode", false)
+if (window.localStorage.getItem("DarkMode") == undefined) {
+    window.localStorage.setItem("DarkMode", false)
 }
 
-let ColorMode = window.localStorage.getItem("ColorMode")
+let DarkMode = JSON.parse(localStorage.getItem("DarkMode"))
 
 function ChangeButt() {
-    let ColorMode = window.localStorage.getItem("ColorMode")
-    if (ColorMode == "true") {
+    let DarkMode = window.localStorage.getItem("DarkMode")
+    if (DarkMode == "true") {
         btn.innerHTML = "Dark Mode"
     } else {
         btn.innerHTML = "Light mode"
@@ -17,14 +16,13 @@ function ChangeButt() {
 }
 ChangeButt();
 function DarkOrLight() {
-    let ColorMode = window.localStorage.getItem("ColorMode")
+    let DarkMode = JSON.parse(localStorage.getItem("DarkMode"))
     document.getElementsByTagName('body')[0].classList.toggle("dark");
-    var isTrueSet = (ColorMode === 'true');
-    window.localStorage.setItem("ColorMode", !isTrueSet)
+    window.localStorage.setItem("DarkMode", !DarkMode)
     ChangeButt();
 }
 
-if (ColorMode == "true") {
+if (DarkMode == true) {
     document.getElementsByTagName('body')[0].classList.add("dark");
     ChangeButt();
 } else {
